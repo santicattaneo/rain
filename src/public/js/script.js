@@ -15,7 +15,7 @@ window.onload = function() {
     body.classList.remove('hidden');
 };
 
-//set
+//set-lenis
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis();
