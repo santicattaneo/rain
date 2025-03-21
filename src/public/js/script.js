@@ -115,17 +115,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //admin
 document.getElementById('admin-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const password = document.getElementById('password').value;
+    e.preventDefault(); 
+
+    const password = document.getElementById('password').value; 
     const verifyDiv = document.querySelector('.verify');
+
     if (password === "comunicacionalways") {
-        verifyDiv.style.display = 'none';
+        verifyDiv.style.display = 'none'; 
     }
 });
 
+
 //hablemos
 const form = document.getElementById('hablemos-form');
-
 form.addEventListener('submit', e => {
     e.preventDefault();
     const data = new FormData(form);
