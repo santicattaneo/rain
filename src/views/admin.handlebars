@@ -51,3 +51,27 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('admin-form').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        const password = document.getElementById('password').value; 
+        const verifyDiv = document.querySelector('.verify');
+        if (password === "comunicacionalways") {
+            verifyDiv.style.display = 'none'; 
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".columnas__btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const itemId = this.getAttribute("data-id");
+                fetch(`/api/hablemos/${itemId}`, { 
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" }
+                }).then((data) => {
+                    location.reload();
+                })
+            });
+        });
+    });
+</script>

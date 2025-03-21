@@ -7,3 +7,18 @@
         <p class="gracias__redir">volviendo al inicio en <span class="cuenta-atras">5</span></p>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let contador = 5;
+        const cuentaAtrasElemento = document.querySelector(".cuenta-atras");
+
+        const intervalo = setInterval(() => {
+            cuentaAtrasElemento.textContent = contador;
+            if (contador === 0) {
+                clearInterval(intervalo);
+                window.location.href = '/';
+            }
+            contador--;
+        }, 1500);
+    });
+</script>
