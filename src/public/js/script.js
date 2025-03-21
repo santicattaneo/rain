@@ -113,6 +113,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1500);
 });
 
+//admin
+document.getElementById('admin-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const password = document.getElementById('password').value;
+    const verifyDiv = document.querySelector('.verify');
+    if (password === "comunicacionalways") {
+        verifyDiv.style.display = 'none';
+    }
+});
+
+//hablemos
+const form = document.getElementById('hablemos-form');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const obj = {};
+    data.forEach((value, key) => obj[key] = value);
+    fetch('/api/hablemos', {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (response.status === 201) {
+            window.location.href = '/gracias';
+        } else {
+            window.location.href = '/error';
+        }
+    })
+    .catch(error => {
+        window.location.href = '/error';
+    });
+});
+
+//funcion-andmin
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".columnas__btn").forEach(button => {
         button.addEventListener("click", function () {
