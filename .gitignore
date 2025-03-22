@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
+
+### Node ###
+>>>>>>> ecc97c4 (v1.0.0)
 # Logs
 logs
 *.log
@@ -102,6 +109,7 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
+<<<<<<< HEAD
 .cache
 
 # vitepress build output
@@ -109,6 +117,8 @@ dist
 
 # vitepress cache directory
 **/.vitepress/cache
+=======
+>>>>>>> ecc97c4 (v1.0.0)
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -134,3 +144,17 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< HEAD
+=======
+
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
+# Optional stylelint cache
+
+# SvelteKit build / generate output
+.svelte-kit
+
+# End of https://www.toptal.com/developers/gitignore/api/node
+>>>>>>> ecc97c4 (v1.0.0)

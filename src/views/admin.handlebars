@@ -1,0 +1,77 @@
+<div class="sticky"></div>
+<div class="container">
+    <div class="verify">
+        <form id="admin-form" class="verify__formulario">
+            <label for="password">código de acceso</label>
+            <input type="password" id="password" required>
+            <button type="submit">entrar</button>
+        </form>
+    </div>
+    <div class="respuestas">
+        <div class="content">
+            <ul class="columnas titulos">
+                <li class="columnas__title">nombre/marca</li>
+                <li class="columnas__title">quiere hablar con</li>
+                <li class="columnas__title">mail</li>
+                <li class="columnas__title">mensaje</li>
+                <li class="columnas__title"></li>
+            </ul>
+            <div id="forms-container">
+            {{#each forms}}
+                <ul class="columnas responses">
+                    <li class="columnas__title">{{this.name}}</li>
+                    <li class="columnas__title">{{this.hablarCon}}</li>
+                    <li class="columnas__title">{{this.mail}}</li>
+                    <li class="columnas__title">{{this.mensaje}}</li>
+                    <li class="columnas__title"><button id="delete{{this._id}}" class="columnas__btn" data-id="{{this._id}}">🗑️</button></li>
+                </ul>
+            {{/each}}
+            </div>
+        </div>
+        <div class="paginate">
+            {{#if hasPrevPage}}
+                <a href="/65b1f3d4a9c27b6f2e8d45fa/admin?page={{prevPage}}" class="p-1"><button class="paginate__btn">Anterior</button></a>
+            {{else}}
+                <a href="#" class="p-1" disabled><button class="paginate__btn">Anterior</button></a>
+            {{/if}}
+
+            {{#if hasPrevPage}}
+                <a class="p-1" href="/65b1f3d4a9c27b6f2e8d45fa/admin?page={{prevPage}}"><button class="paginate__btn d">{{prevPage}}</button></a>
+            {{/if}}
+            <a class="p-1" href="#"><button class="paginate__btn" >{{currentPage}}</button></a>
+            {{#if hasNextPage}}
+                <a class="p-1" href="/65b1f3d4a9c27b6f2e8d45fa/admin?page={{nextPage}}"><button class="paginate__btn d">{{nextPage}}</button></a>
+            {{/if}}
+
+            {{#if hasNextPage}}
+                <a class="p-1" href="/65b1f3d4a9c27b6f2e8d45fa/admin?page={{nextPage}}"><button class="paginate__btn">Siguiente</button></a>
+            {{else}}
+                <a class="p-1" href="#"><button class="paginate__btn" disabled>Siguiente</button></a>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('admin-form').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        const password = document.getElementById('password').value; 
+        const verifyDiv = document.querySelector('.verify');
+        if (password === "comunicacionalways") {
+            verifyDiv.style.display = 'none'; 
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".columnas__btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const itemId = this.getAttribute("data-id");
+                fetch(`/api/hablemos/${itemId}`, { 
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" }
+                }).then((data) => {
+                    location.reload();
+                })
+            });
+        });
+    });
+</script>

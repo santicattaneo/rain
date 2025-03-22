@@ -1,0 +1,24 @@
+<div class="sticky"></div>
+<div class="container">
+    <div class="gracias">
+        <h2>hola soñador/a</h2>
+        <p class="gracias__proud">diste el primer paso para vivir de tu pasión y eso nos enorgullece</p>
+        <p class="gracias__response">te responderemos pronto :)</p>
+        <p class="gracias__redir">volviendo al inicio en <span class="cuenta-atras">5</span></p>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let contador = 5;
+        const cuentaAtrasElemento = document.querySelector(".cuenta-atras");
+
+        const intervalo = setInterval(() => {
+            cuentaAtrasElemento.textContent = contador;
+            if (contador === 0) {
+                clearInterval(intervalo);
+                window.location.href = '/';
+            }
+            contador--;
+        }, 1500);
+    });
+</script>

@@ -1,0 +1,57 @@
+<div class="sticky"></div>
+<div class="container">
+    <div class="hablemos">
+        <div class="hablemos__content">
+            <div class="hablemos__text">
+                <div class="hablemos__text__phrase">
+                    <p>hola soñador/a!</p>
+                    <p>☻</p>
+                    <p>¿qué podemos hacer por tu pasión?</p>
+                </div>
+                <a class="link display-change-1" href="/"><span class="arrow">←</span>volver a studio</a>
+            </div>
+            <form action="/api/hablemos" method="POST" id="hablemos-form">
+                <label>soy/somos</label>
+                <input name="name" type="text">
+                <label>quiero hablar con</label>
+                <select name="hablarCon">
+                    <option value="" selected disabled>seleccioná</option>
+                    <option value="gemi">gemi</option>
+                    <option value="santi">santi</option>
+                    <option value="noSeguro">no estoy seguro/a</option>
+                </select>
+                <label>mail</label>
+                <input name="mail" type="email">
+                <label>necesito</label>
+                <textarea id="parrafo" name="mensaje"></textarea>
+                <button type="submit">enviar</button>
+            </form>
+            <a class="link display-change-2" href="/"><span class="arrow">←</span>volver a studio</a>
+        </div>
+    </div>
+</div>
+<script>
+    const form = document.getElementById('hablemos-form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const obj = {};
+        data.forEach((value, key) => obj[key] = value);
+        fetch('/api/hablemos', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.status === 201) {
+                window.location.href = '/gracias';
+            } else {
+                window.location.href = '/error';
+            }
+        })
+        .catch(error => {
+            window.location.href = '/error';
+        });
+    });
+</script>
