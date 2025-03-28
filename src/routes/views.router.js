@@ -35,6 +35,14 @@ router.get('/error', async (req, res) => {
     };
 });
 
+router.get('/historia', async (req, res) => {
+    try {
+        res.render('historia', { title: 'historia' });
+    } catch (error) {
+        res.status(500).render('error', { title: 'oops :(' });
+    }
+})
+
 router.get('/65b1f3d4a9c27b6f2e8d45fa/admin', async (req, res) => {
     try {
         const { page = 1, limit = 10, sort, query } = req.query;

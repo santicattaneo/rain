@@ -15,6 +15,14 @@ window.onload = function() {
     body.classList.remove('hidden');
 };
 
+//mouse-accesorie
+const symbol = document.querySelector('.cursor-symbol');
+document.addEventListener('mousemove', (e) => {
+    let offsetX = 25;
+    let offsetY = 25;
+    symbol.style.transform = `translate(${e.clientX + offsetX}px, ${e.clientY + offsetY}px)`;
+});
+
 //set-lenis
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +36,7 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
-//main
+//imagenes
 ScrollTrigger.create({
     trigger: ".ws",
     start: "top bottom",
@@ -53,14 +61,15 @@ ScrollTrigger.create({
     },
 });
 
+//cards
 const cards = document.querySelectorAll(".card");
 const footer = document.querySelector(".footer");
 
 ScrollTrigger.create({
     trigger: cards[0],
-    start: "top 35%",
+    start: "top top",
     endTrigger: cards[cards.length - 1],
-    end: "top 30%",
+    end: "top top",
     pinSpacing: false
 });
 
@@ -72,7 +81,7 @@ cards.forEach((card, index) => {
             trigger: card,
             start: "top top",
             endTrigger: footer,
-            end: "top 65%",
+            end: "top top",
             pin: true,
             pinSpacing: false
         });
@@ -83,17 +92,9 @@ cards.forEach((card, index) => {
                 trigger: card,
                 start: "top top",
                 endTrigger: footer,
-                end: "top 65%",
+                end: "top top",
                 scrub: true
             }
         });
     }
-});
-
-const symbol = document.querySelector('.cursor-symbol');
-
-document.addEventListener('mousemove', (e) => {
-    let offsetX = 25;
-    let offsetY = 25;
-    symbol.style.transform = `translate(${e.clientX + offsetX}px, ${e.clientY + offsetY}px)`;
 });

@@ -150,8 +150,8 @@ header {
     justify-content: space-between;
     color: #fff;
     p{
-        font-size: 32px;
-        width: 50vh;
+        font-size: 24px;
+        width: 35vh;
         text-align: center;
     }
 }
@@ -164,8 +164,6 @@ nav{
         align-items: center;
         li{
             a {
-                text-decoration: none;
-                color: #fff;
                 font-size: 24px;
                 &:hover .arrow{
                     display: inline-block;
@@ -231,7 +229,7 @@ section {
     height: auto;
     .tagline{
         p{
-            font-size: 24px;
+            font-size: 32px;
         }
     }
     .intro-header{
@@ -255,7 +253,7 @@ section {
 
 section.ws {
     width: 100vw;
-    height: 600vh;
+    height: 200vh;
     background-color: transparent;
 }
 
@@ -371,7 +369,7 @@ section.ws {
         &__section {
             p {
                 color: #fff;
-                font-size: 64px;
+                font-size: 32px;
                 margin-bottom: 32px;
                 font-weight: 700;
             }
@@ -389,7 +387,7 @@ section.ws {
         a{
             text-decoration: none;
             color: #fff;
-            font-size: 56px;
+            font-size: 32px;
             &:hover .arrow{
                 display: inline-block;
             }
@@ -693,6 +691,70 @@ section.ws {
     }
 }
 
+.hcont{
+    width: 100%;
+    height: inherit;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    &__flor{
+        width: 448px;
+    }
+    &__content{
+        color: #fff;
+        max-width: 640px;
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        &__h2{
+            font-size: 64px;
+            padding: 0;
+            margin: 0;
+        }
+        &__h1{
+            font-size: 32px;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    &__links{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 24px;
+        &__link{
+            color: #fff;
+            text-decoration: none;
+            font-size: 32px;
+            i{
+                margin-right: 8px;
+            }
+            &:hover .arrow{
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 5px;
+    width: 0%;
+    background: #000;
+    transition: width 0.1s linear;
+}
+
 @keyframes scroll {
     from {
         transform: translateX(0%);
@@ -773,8 +835,30 @@ section.ws {
             }
         }
     }
+    .hcont{
+        flex-direction: column;
+        &__flor{
+            width: 192px;
+        }
+        &__content{
+            gap: 32px;
+            &__h1{
+                font-size: 24px;
+                text-align: center;
+            }
+            &__h2{
+                font-size: 48px;
+                text-align: center;
+            }
+        }
+        &__links{
+            &__link{
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+    }
 }
-
 @media (max-width: 992px) {
     .gallery-wrapper{
         gap: 32px !important;
@@ -828,8 +912,12 @@ section.ws {
     }
     .outro{
         padding: 6em 2em;
+        .outro-h1{
+            font-size: 72px;
+        }
     }
     .card-inner{
+        height: 50vh;
         .card-content{
             .card-title{
                 font-size: 64px;
@@ -858,5 +946,22 @@ section.ws {
     }
     .horizontal{
         padding-top: 20em;
+    }
+    .hcont{
+        &__content{
+            max-width: 448px;
+            gap: 32px;
+            &__h1{
+                font-size: 24px;
+            }
+            &__h2{
+                font-size: 40px;
+            }
+        }
+        &__links{
+            &__link{
+                font-size: 24px;
+            }
+        }
     }
 }
