@@ -47,9 +47,9 @@ ScrollTrigger.create({
         const sideCols = document.querySelectorAll(".col:not(.main)");
         const mainImg = document.querySelector(".img.main img");
     
-        const scale = 1 + self.progress * 2.65;
+        const scale = 1 + self.progress * 2.80;
         const yTranslate = self.progress * 300;
-        const mainImgScale = 2 - self.progress * 0.85;
+        const mainImgScale = 2 - self.progress * 0.80;
         
         galleryWrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
         
