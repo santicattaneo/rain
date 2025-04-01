@@ -1,57 +1,31 @@
-<div class="sticky"></div>
+<span class="cursor-symbol">:)</span>
+<section class="sticky"></section>
 <div class="container">
-    <div class="hablemos">
-        <div class="hablemos__content">
-            <div class="hablemos__text">
-                <div class="hablemos__text__phrase">
-                    <p>hola soñador/a!</p>
-                    <p>☻</p>
-                    <p>¿qué podemos hacer por tu pasión?</p>
+    <div class="hablemos-content">
+        <header>
+            <a href="/"><img src="https://i.postimg.cc/SRgrHcW6/inflado-blanco.png" alt="logotipo"></a>
+            <nav>
+                <ul>
+                    <li><a class="in-page" href="/">studio</a></li>
+                    <li><a class="link" href="/hablemos"><span class="arrow">→</span>hablemos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="hcont">
+            <div class="hcont__flor"><img src="https://i.postimg.cc/R0RphNkr/flor.gif" alt="flor saludando"></div>
+            <div class="hcont__content">
+                <p class="hcont__content__h2">hola! nos alegra verte por acá...</p>
+                <p class="hcont__content__h1">compartinos tus necesidades por estos medios de contacto</p>
+                <div class="hcont__links">
+                    <a class="hcont__links__link" href="https://mail.google.com/mail/?view=cm&to=studiorain.team@gmail.com" target="_blank"><span class="arrow">→</span>mail</a>
+                    <a class="hcont__links__link" href="https://wa.me/5493534249878" target="_blank"><span class="arrow">→</span><i class="fa-brands fa-whatsapp"></i>gemi</a>
+                    <a class="hcont__links__link" href="https://www.instagram.com/studiorain.ar" target="_blank"><span class="arrow">→</span>instagram</a>
+                    <a class="hcont__links__link" href="https://wa.me/5493472521320" target="_blank"><span class="arrow">→</span><i class="fa-brands fa-whatsapp"></i>santi</a>
                 </div>
-                <a class="link display-change-1" href="/"><span class="arrow">←</span>volver a studio</a>
             </div>
-            <form action="/api/hablemos" method="POST" id="hablemos-form">
-                <label>soy/somos</label>
-                <input name="name" type="text">
-                <label>quiero hablar con</label>
-                <select name="hablarCon">
-                    <option value="" selected disabled>seleccioná</option>
-                    <option value="gemi">gemi</option>
-                    <option value="santi">santi</option>
-                    <option value="noSeguro">no estoy seguro/a</option>
-                </select>
-                <label>mail</label>
-                <input name="mail" type="email">
-                <label>necesito</label>
-                <textarea id="parrafo" name="mensaje"></textarea>
-                <button type="submit">enviar</button>
-            </form>
-            <a class="link display-change-2" href="/"><span class="arrow">←</span>volver a studio</a>
         </div>
     </div>
+    <div class="hablemos-img">
+        <img src="https://i.postimg.cc/xdqSZPMR/hero.gif" alt="lluvia">
+    </div>
 </div>
-<script>
-    const form = document.getElementById('hablemos-form');
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const obj = {};
-        data.forEach((value, key) => obj[key] = value);
-        fetch('/api/hablemos', {
-            method: 'POST',
-            body: JSON.stringify(obj),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(response => {
-            if (response.status === 201) {
-                window.location.href = '/gracias';
-            } else {
-                window.location.href = '/error';
-            }
-        })
-        .catch(error => {
-            window.location.href = '/error';
-        });
-    });
-</script>
